@@ -1,176 +1,12 @@
 import { useState } from "react";
+import { PageLayoutComp } from "../../components/page_layout_comp";
+import HomeHeroComp from "./components/home_hero_comp";
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <div className="min-h-screen flex flex-col bg-background text-white">
-      {/* Header Bar */}
-      <header className="fixed top-0 left-0 right-0 w-full flex items-center justify-between h-[5rem] px-8 mx-auto bg-background/80 backdrop-blur-sm z-50">
-        <div className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-white">
-            jose<span className="text-blue-500">guillen</span>
-          </span>
-        </div>
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-sm font-medium">
-          <a href="#about" className="hover:text-blue-400 transition">
-            About
-          </a>
-          <a href="#experience" className="hover:text-blue-400 transition">
-            Experience
-          </a>
-          <a href="#projects" className="hover:text-blue-400 transition">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-blue-400 transition">
-            Contact
-          </a>
-        </nav>
-        <button className="hidden md:block border border-blue-500 text-blue-500 px-5 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">
-          Resume
-        </button>
-        {/* Hamburger for mobile */}
-        <button
-          className="md:hidden flex items-center justify-center w-10 h-10 text-white focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          {menuOpen ? (
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
-        </button>
-      </header>
-
-      {/* Mobile Menu Drawer */}
-      <div 
-        className={`fixed md:hidden inset-0 mt-[5rem] z-40 flex items-start justify-end transition-all duration-300 ease-in-out ${
-          menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-      >
-        <div 
-          className={`w-full bg-background/80 backdrop-blur-sm p-8 flex flex-col items-start relative transition-transform duration-300 ease-in-out ${
-            menuOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
-        >
-          <nav className="flex flex-col space-y-6 w-full items-center mt-4">
-            <a
-              href="#about"
-              className="font-semibold text-white hover:text-blue-400 text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#experience"
-              className="font-semibold text-white hover:text-blue-400 text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Experience
-            </a>
-            <a
-              href="#projects"
-              className="font-semibold text-white hover:text-blue-400 text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="font-semibold text-white hover:text-blue-400 text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </a>
-            <button className="mt-6 border border-blue-500 text-blue-500 px-8 py-2 rounded-full font-semibold flex items-center gap-2 hover:bg-blue-500 hover:text-white transition">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
-                />
-              </svg>
-              Resume
-            </button>
-          </nav>
-        </div>
-      </div>
-
+    <PageLayoutComp>
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center mt-[5rem] px-4 py-20 overflow-hidden">
-        {/* Background Layer */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background: `
-              radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 50%),
-              radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 50%),
-              radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 50%)
-            `,
-          }}
-        />
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
-            Hello, I'm Josef!
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-500 mb-6">
-            Mobile Developer
-          </h2>
-          <p className="max-w-xl text-base md:text-lg text-gray-300 mb-8">
-            I am passionate about building high-performance mobile applications
-            and committed to helping bring your ideas to life, delivering an
-            exceptional user experience and impactful results.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#contact"
-              className="min-w-[200px] max-w-xs w-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-full transition text-center"
-              style={{ boxShadow: "0 2px 8px 0 rgba(59,130,246,0.10)" }}
-            >
-              Get In Touch
-            </a>
-            <a
-              href="#about"
-              className="min-w-[200px] max-w-xs w-auto border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-semibold px-6 py-3 rounded-full transition text-center"
-              style={{ boxShadow: "0 2px 8px 0 rgba(59,130,246,0.05)" }}
-            >
-              About Me
-            </a>
-          </div>
-        </div>
-      </section>
+      <HomeHeroComp />
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 max-w-4xl mx-auto">
@@ -332,6 +168,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+    </PageLayoutComp>
   );
 }
