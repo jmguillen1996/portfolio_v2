@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PageLayoutComp } from "../../components/page_layout_comp";
 import HomeHeroComp from "./components/home_hero_comp";
+import HomeAboutComp from "./components/home_about_comp";
 
 export default function HomePage() {
   return (
@@ -9,48 +10,7 @@ export default function HomePage() {
       <HomeHeroComp />
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <p className="text-gray-300">
-              I'm a dedicated mobile developer with expertise in React Native
-              and native iOS/Android development. With a strong foundation in
-              software engineering principles and a passion for creating
-              intuitive user interfaces, I strive to build applications that
-              make a real impact.
-            </p>
-            <p className="text-gray-300">
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing my knowledge
-              through technical writing and mentoring.
-            </p>
-          </div>
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4">Skills</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h4 className="font-medium mb-2">Frontend</h4>
-                <ul className="text-gray-300 space-y-1">
-                  <li>React Native</li>
-                  <li>Swift</li>
-                  <li>Kotlin</li>
-                  <li>TypeScript</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium mb-2">Backend</h4>
-                <ul className="text-gray-300 space-y-1">
-                  <li>Node.js</li>
-                  <li>Firebase</li>
-                  <li>REST APIs</li>
-                  <li>GraphQL</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeAboutComp />
 
       {/* Experience Section */}
       <section id="experience" className="py-20 px-4 bg-gray-900">
