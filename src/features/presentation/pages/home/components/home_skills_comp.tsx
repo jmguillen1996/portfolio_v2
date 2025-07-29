@@ -165,7 +165,7 @@ export default function HomeSkillsComp() {
   return (
     <section
       id="skills"
-      className="relative py-20 px-0 w-full bg-gradient-to-br from-[#10131a] via-[#181f2a] to-[#11151c] overflow-hidden"
+      className="relative py-20 px-0 w-full overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-100 drop-shadow-lg">

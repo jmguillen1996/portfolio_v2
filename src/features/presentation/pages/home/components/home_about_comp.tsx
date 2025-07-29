@@ -6,7 +6,7 @@ function Icon(Component: unknown, size = 22) {
 
 export default function HomeAboutComp() {
   return (
-    <section id="about" className="relative py-20 px-0 overflow-hidden w-full">
+    <section id="about" className="relative py-20 px-0 overflow-hidden w-full bg-gray-900">
       {/* Content container remains centered and constrained */}
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">
@@ -60,6 +60,9 @@ export default function HomeAboutComp() {
           </div>
         </div>
       </div>
+      {/* Subtle blurred background shapes, matching the skills section */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-blue-950 via-indigo-950 to-transparent opacity-10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-pink-950 via-purple-950 to-transparent opacity-10 rounded-full blur-3xl -z-10" />
     </section>
   );
 }
