@@ -3,6 +3,7 @@ import { PageLayoutComp } from "../../components/page_layout_comp";
 import HomeHeroComp from "./components/home_hero_comp";
 import HomeAboutComp from "./components/home_about_comp";
 import HomeSkillsComp from "./components/home_skills_comp";
+import HomeProjectsComp from "./components/home_projects_comp";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,9 @@ export default function HomePage() {
 
       {/* About Section */}
       <HomeAboutComp />
+
+      {/* Projects Section */}
+      <HomeProjectsComp />
 
       {/* Experience Section */}
       <section id="experience" className="py-20 px-4 bg-gray-900">
