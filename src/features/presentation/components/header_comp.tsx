@@ -17,6 +17,9 @@ export default function HeaderComp({
         <a href="#about" className="hover:text-blue-400 transition">
           About
         </a>
+        <a href="#skills" className="hover:text-blue-400 transition">
+          Skills
+        </a>
         <a href="#experience" className="hover:text-blue-400 transition">
           Experience
         </a>

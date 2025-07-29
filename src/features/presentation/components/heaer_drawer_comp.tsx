@@ -25,6 +25,13 @@ export default function HeaderDrawerComp({
             About
           </a>
           <a
+            href="#skills"
+            className="font-semibold text-white hover:text-blue-400 text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Skills
+          </a>
+          <a
             href="#experience"
             className="font-semibold text-white hover:text-blue-400 text-lg"
             onClick={() => setMenuOpen(false)}

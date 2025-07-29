@@ -10,11 +10,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <HomeHeroComp />
 
-      {/* About Section */}
-      <HomeAboutComp />
-
       {/* Skills Section */}
       <HomeSkillsComp />
+
+      {/* About Section */}
+      <HomeAboutComp />
 
       {/* Experience Section */}
       <section id="experience" className="py-20 px-4 bg-gray-900">
