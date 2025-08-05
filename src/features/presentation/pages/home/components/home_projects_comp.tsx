@@ -31,7 +31,7 @@ const projects = [
     title: "ErotixAI - Admin",
     description:
       "Admin panel for ErotixAI used to manage AI companions and avatars displayed on the main platform. Provides tools for creating, updating, and publishing avatars, managing AI video call characters, controlling voice and media assets, and moderating user interactions and reports. The panel also includes analytics and usage insights powered by Mixpanel, allowing the team to monitor how users engage with the app.",
-    icon: "/images/projects/erotixai/erotix_ai.png",
+    icon: "",
     websiteUrl: "https://admin.erotix.ai/",
     detailsUrl: "#",
     tech: [
@@ -113,7 +113,27 @@ export default function HomeProjectsComp() {
                       className="w-10 h-10 rounded-md object-contain bg-[#232b3a] p-1"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-md bg-gray-700" />
+                    <div className="w-10 h-10 rounded-md bg-gray-700 flex items-center justify-center">
+                      {/* Dummy placeholder icon */}
+                      <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        className="mx-auto"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect x="4" y="4" width="32" height="32" rx="8" fill="#374151" />
+                        <path
+                          d="M14 26c2-2 10-2 12 0"
+                          stroke="#9CA3AF"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <circle cx="16.5" cy="17" r="1.5" fill="#9CA3AF" />
+                        <circle cx="23.5" cy="17" r="1.5" fill="#9CA3AF" />
+                      </svg>
+                    </div>
                   )}
                 </div>
                 <a
