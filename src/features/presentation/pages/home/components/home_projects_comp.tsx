@@ -47,6 +47,21 @@ const projects = [
     dateRange: "June 2025 - Present",
   },
   {
+    id: 2,
+    title: "TourneyKey",
+    description:
+      "Tourneykey is a basketball tournament management platform that helps organizers streamline league operations. It supports creating tournaments, registering teams and coaches, managing event locations, setting up game schedules, and tracking scores and standings. The platform is designed to simplify every stage of tournament planning — from setup to final results — for both organizers and participants.",
+    icon: "/images/projects/tourneykey/tourney_key.svg",
+    websiteUrl: "https://tourneykey.com/",
+    detailsUrl: "#",
+    tech: [
+      "Angular",
+      "CSS",
+      "RxJs"
+    ],
+    dateRange: "Sep 2024 - Nov 2024",
+  },
+  {
     id: 1,
     title: "Vision Frame AI",
     description:
