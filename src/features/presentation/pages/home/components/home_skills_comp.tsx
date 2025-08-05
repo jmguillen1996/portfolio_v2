@@ -27,51 +27,65 @@ const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "React", icon: () => Icon(FaReact, 32), colorClass: "text-sky-700" },
-      { name: "Angular", icon: () => <span className="text-red-700 text-3xl"><svg width="32" height="32" viewBox="0 0 256 272" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M127.9 0L4.6 43.2l19.7 163.6 103.6 65.2 103.6-65.2 19.7-163.6L127.9 0z" fill="#8B1F24"/><path d="M128 20.6v234.2l84.1-53 16-148.1L128 20.6z" fill="#6B181B"/><path d="M128 44.2l-62.7 120.7h25.6l12.7-28.1h48.7l12.7 28.1h25.6L128 44.2zm15.7 70.2h-31.4L128 74.2l15.7 40.2z" fill="#fff"/></g></svg></span>, colorClass: "text-red-700" },
-      { name: "Flutter", icon: () => Icon(SiFlutter, 32), colorClass: "text-cyan-800" },
-      { name: "HTML", icon: () => Icon(FaHtml5, 32), colorClass: "text-orange-700" },
-      { name: "CSS", icon: () => Icon(FaCss3Alt, 32), colorClass: "text-blue-800" },
-      { name: "JavaScript", icon: () => Icon(FaJs, 32), colorClass: "text-yellow-700" },
-      { name: "TypeScript", icon: () => Icon(SiTypescript, 32), colorClass: "text-blue-900" },
-      { name: "Tailwind CSS", icon: () => Icon(SiTailwindcss, 32), colorClass: "text-cyan-900" },
-      { name: "Redux", icon: () => Icon(SiRedux, 32), colorClass: "text-purple-800" },
+      { name: "React", icon: () => Icon(FaReact, 32), colorClass: "text-sky-400" },
+      { 
+        name: "Angular", 
+        icon: () => (
+          <span className="text-3xl">
+            <svg width="32" height="32" viewBox="0 0 256 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path d="M127.9 0L4.6 43.2l19.7 163.6 103.6 65.2 103.6-65.2 19.7-163.6L127.9 0z" fill="#DD0031"/>
+                <path d="M128 20.6v234.2l84.1-53 16-148.1L128 20.6z" fill="#C3002F"/>
+                <path d="M128 44.2l-62.7 120.7h25.6l12.7-28.1h48.7l12.7 28.1h25.6L128 44.2zm15.7 70.2h-31.4L128 74.2l15.7 40.2z" fill="#fff"/>
+              </g>
+            </svg>
+          </span>
+        ), 
+        colorClass: "" 
+      },
+      { name: "Flutter", icon: () => Icon(SiFlutter, 32), colorClass: "text-cyan-400" },
+      { name: "HTML", icon: () => Icon(FaHtml5, 32), colorClass: "text-orange-500" },
+      { name: "CSS", icon: () => Icon(FaCss3Alt, 32), colorClass: "text-blue-500" },
+      { name: "JavaScript", icon: () => Icon(FaJs, 32), colorClass: "text-yellow-400" },
+      { name: "TypeScript", icon: () => Icon(SiTypescript, 32), colorClass: "text-blue-500" },
+      { name: "Tailwind CSS", icon: () => Icon(SiTailwindcss, 32), colorClass: "text-cyan-500" },
+      { name: "Redux", icon: () => Icon(SiRedux, 32), colorClass: "text-purple-500" },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", icon: () => Icon(FaNodeJs, 32), colorClass: "text-green-800" },
-      { name: "MongoDB", icon: () => Icon(SiMongodb, 32), colorClass: "text-green-900" },
-      { name: "Firebase", icon: () => Icon(SiFirebase, 32), colorClass: "text-yellow-800" },
-      { name: "SQL", icon: () => Icon(FaDatabase, 32), colorClass: "text-indigo-900" },
+      { name: "Node.js", icon: () => Icon(FaNodeJs, 32), colorClass: "text-green-500" },
+      { name: "MongoDB", icon: () => Icon(SiMongodb, 32), colorClass: "text-green-600" },
+      { name: "Firebase", icon: () => Icon(SiFirebase, 32), colorClass: "text-yellow-500" },
+      { name: "SQL", icon: () => Icon(FaDatabase, 32), colorClass: "text-blue-600" },
     ],
   },
   {
     category: "Mobile",
     items: [
-      { name: "Flutter", icon: () => Icon(SiFlutter, 32), colorClass: "text-cyan-800" },
+      { name: "Flutter", icon: () => Icon(SiFlutter, 32), colorClass: "text-cyan-400" },
       { 
         name: "Kotlin (Android Native)", 
         icon: () => (
-          <span className="text-purple-800 text-3xl flex items-center">
+          <span className="text-3xl flex items-center">
             <img
               src="/logo/kotlin.png"
               alt="Kotlin Logo"
               width={32}
               height={32}
               style={{
-                filter: "brightness(0.7) contrast(1.1)",
+                // No darkening filter, show original logo color
               }}
             />
           </span>
         ), 
-        colorClass: "text-purple-800" 
+        colorClass: "" 
       },
       { 
         name: "Java (Android Native)", 
         icon: () => (
-          <span className="text-green-800 text-3xl flex items-center">
+          <span className="text-3xl flex items-center">
             <img
               src="/logo/android.png"
               alt="Android Logo"
@@ -82,42 +96,42 @@ const skills = [
                 borderRadius: "50%",
                 objectFit: "cover",
                 aspectRatio: "1 / 1",
-                filter: "brightness(0.7) contrast(1.1)",
+                // No darkening filter, show original logo color
               }}
             />
           </span>
         ), 
-        colorClass: "text-green-800" 
+        colorClass: "" 
       },
       { name: "Xamarin", icon: () => (
-        <span className="text-blue-800 text-3xl">
+        <span className="text-3xl">
           <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="256" height="256" rx="60" fill="#1B3A4B"/>
             <path d="M80 80L176 176M176 80L80 176" stroke="#fff" strokeWidth="16" strokeLinecap="round"/>
           </svg>
         </span>
-      ), colorClass: "text-blue-800" },
+      ), colorClass: "" },
       { 
         name: ".NET MAUI", 
         icon: () => (
-          <span className="text-indigo-900 text-3xl flex items-center">
+          <span className="text-3xl flex items-center">
             <img
               src="/logo/maui.png"
               alt=".NET MAUI Logo"
               width={32}
               height={32}
               style={{
-                filter: "brightness(0.7) contrast(1.1)",
+                // No darkening filter, show original logo color
               }}
             />
           </span>
         ), 
-        colorClass: "text-indigo-900" 
+        colorClass: "" 
       },
       { 
         name: "Android", 
         icon: () => (
-          <span className="text-green-800 text-3xl flex items-center">
+          <span className="text-3xl flex items-center">
             <img
               src="/logo/android.png"
               alt="Android Logo"
@@ -128,35 +142,35 @@ const skills = [
                 borderRadius: "50%",
                 objectFit: "cover",
                 aspectRatio: "1 / 1",
-                filter: "brightness(0.7) contrast(1.1)",
+                // No darkening filter, show original logo color
               }}
             />
           </span>
         ), 
-        colorClass: "text-green-800" 
+        colorClass: "" 
       },
       { 
         name: "iOS", 
         icon: () => (
-          <span className="text-gray-500 text-3xl flex items-center">
+          <span className="text-3xl flex items-center">
             <img
               src="/logo/apple.png"
               alt="iOS Logo"
               width={32}
               height={32}
-              style={{ display: "inline-block", borderRadius: "50%", objectFit: "cover", filter: "brightness(0.7) contrast(1.1)" }}
+              style={{ display: "inline-block", borderRadius: "50%", objectFit: "cover" }}
             />
           </span>
         ), 
-        colorClass: "text-gray-500" 
+        colorClass: "" 
       },
     ],
   },
   {
     category: "Others",
     items: [
-      { name: "Git", icon: () => Icon(FaGitAlt, 32), colorClass: "text-orange-800" },
-      { name: "Github", icon: () => Icon(FaGithub, 32), colorClass: "text-gray-600" },
+      { name: "Git", icon: () => Icon(FaGitAlt, 32), colorClass: "text-orange-400" },
+      { name: "Github", icon: () => Icon(FaGithub, 32), colorClass: "text-gray-200" },
     ],
   },
 ];
