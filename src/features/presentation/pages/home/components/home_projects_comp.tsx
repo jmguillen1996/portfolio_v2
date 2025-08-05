@@ -113,7 +113,7 @@ export default function HomeProjectsComp() {
                       className="w-10 h-10 rounded-md object-contain bg-[#232b3a] p-1"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-md bg-gray-700 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-md bg-[#232b3a] flex items-center justify-center">
                       {/* Dummy placeholder icon */}
                       <svg
                         width="40"
@@ -123,7 +123,7 @@ export default function HomeProjectsComp() {
                         className="mx-auto"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <rect x="4" y="4" width="32" height="32" rx="8" fill="#374151" />
+                        <rect x="4" y="4" width="32" height="32" rx="8" fill="#232b3a" />
                         <path
                           d="M14 26c2-2 10-2 12 0"
                           stroke="#9CA3AF"
