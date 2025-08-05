@@ -11,8 +11,9 @@ const projects = [
     title: "Vision Frame AI",
     description:
       "VisionFrame AI is a digital frame powered by DALL-E 3 and ChatGPT-4, enabling interactive, voice-controlled art displays to transform your space into a dynamic gallery.",
-    icon: "/logo/visionframe.png",
-    url: "#",
+    icon: "/images/projects/visionframe/visionframe.png",
+    websiteUrl: "https://visionframedisplay.web.app/",
+    detailsUrl: "#",
     tech: [
       "Flutter",
       "Firebase",
@@ -22,39 +23,7 @@ const projects = [
       "Android",
       "iOS",
     ],
-  },
-  {
-    id: 2,
-    title: "TaskFlow Pro",
-    description:
-      "A productivity app for teams to manage tasks, track progress, and collaborate in real time. Features Kanban boards, notifications, and analytics.",
-    icon: "/logo/taskflow.png",
-    url: "#",
-    tech: [
-      "React",
-      "Redux",
-      "Node.js",
-      "MongoDB",
-      "Socket.io",
-      "TypeScript",
-    ],
-  },
-  {
-    id: 3,
-    title: "EduQuizzer",
-    description:
-      "An interactive quiz platform for students and teachers, supporting live quizzes, analytics, and question banks. Built for web and mobile.",
-    icon: "/logo/eduquizzer.png",
-    url: "#",
-    tech: [
-      "Flutter",
-      "Firebase",
-      "React",
-      "Express",
-      "Chart.js",
-      "Android",
-      "iOS",
-    ],
+    dateRange: "Mar 2024 - Sep 2024",
   },
 ];
 
@@ -69,7 +38,9 @@ export default function HomeProjectsComp() {
           Projects
         </h2>
         <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
-        These are selected projects from my freelance work. I’ve also worked on several applications for past companies, but I no longer have access to those projects to showcase them here.
+          These are selected projects from my freelance work. I’ve also worked
+          on several applications for past companies, but I no longer have
+          access to those projects to showcase them here.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
@@ -91,7 +62,7 @@ export default function HomeProjectsComp() {
                   )}
                 </div>
                 <a
-                  href={project.url}
+                  href={project.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-300 hover:text-blue-400 transition"
@@ -100,14 +71,28 @@ export default function HomeProjectsComp() {
                   {IconFA(FaExternalLinkAlt, 20, "w-5 h-5")}
                 </a>
               </div>
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-100 mb-2">
-                {project.title}
-              </h3>
+              {/* Title and Date Range */}
+              <div className="flex items-center justify-between mb-1">
+                <a
+                  href={project.detailsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-gray-100 hover:text-blue-400"
+                  aria-label={`Open ${project.title}`}
+                >
+                  {project.title}
+                </a>
+                {project.dateRange && (
+                  <span className="text-xs text-gray-400 font-medium ml-2 whitespace-nowrap">
+                    {project.dateRange}
+                  </span>
+                )}
+              </div>
               {/* Description */}
               <p className="text-gray-300 text-sm mb-6 flex-1">
                 {project.description}
               </p>
+
               {/* Tech stack */}
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((tech, idx) => (
