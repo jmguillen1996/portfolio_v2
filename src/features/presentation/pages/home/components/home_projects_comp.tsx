@@ -7,6 +7,25 @@ function IconFA(IconComponent: any, size: number = 20, className = "") {
 
 const projects = [
   {
+    id: 2,
+    title: "ErotixAI",
+    description:
+      "ErotixAI is an AI-powered companion platform where users can interact with lifelike avatars through chat, voice calls, and video calls. Focused on delivering an immersive and engaging experience, the platform features multiple dynamic avatars and real-time interaction, allowing users to build meaningful virtual connections.",
+    icon: "/images/projects/erotixai/erotix_ai.png",
+    websiteUrl: "https://www.erotixai.com/",
+    detailsUrl: "#",
+    tech: [
+      "React Js",
+      "Redux",
+      "Tailwind CSS",
+      "Firebase",
+      "Node.js",
+      "RESTFUL APIs",
+      "Mongo DB",
+    ],
+    dateRange: "Jan 2025 - Present",
+  },
+  {
     id: 1,
     title: "Vision Frame AI",
     description:
