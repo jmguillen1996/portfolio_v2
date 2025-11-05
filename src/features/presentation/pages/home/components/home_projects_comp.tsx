@@ -6,14 +6,54 @@ function IconFA(IconComponent: any, size: number = 20, className = "") {
 }
 
 const projects = [
+  // {
+  //   id: 2,
+  //   title: "ErotixAI",
+  //   description:
+  //     "ErotixAI is an AI-powered companion platform where users can interact with lifelike avatars through chat, voice calls, and video calls. Focused on delivering an immersive and engaging experience, the platform features multiple dynamic avatars and real-time interaction, allowing users to build meaningful virtual connections.",
+  //   icon: "/images/projects/erotixai/erotix_ai.png",
+  //   websiteUrl: "https://www.erotixai.com/",
+  //   detailsUrl: "#",
+  //   tech: [
+  //     "React Js",
+  //     "Redux",
+  //     "Tailwind CSS",
+  //     "Node.js",
+  //     "RESTFUL APIs",
+  //     "Firebase",
+  //     "Mongo DB",
+  //     "Mixpanel",
+  //   ],
+  //   dateRange: "Jan 2025 - Present",
+  // },
+  // {
+  //   id: 2,
+  //   title: "ErotixAI - Admin",
+  //   description:
+  //     "Admin panel for ErotixAI used to manage AI companions and avatars displayed on the main platform. Provides tools for creating, updating, and publishing avatars, managing AI video call characters, controlling voice and media assets, and moderating user interactions and reports. The panel also includes analytics and usage insights powered by Mixpanel, allowing the team to monitor how users engage with the app.",
+  //   icon: "",
+  //   websiteUrl: "https://admin.erotix.ai/",
+  //   detailsUrl: "#",
+  //   tech: [
+  //     "React Js",
+  //     "Redux",
+  //     "Tailwind CSS",
+  //     "Node.js",
+  //     "RESTFUL APIs",
+  //     "Firebase",
+  //     "Mongo DB",
+  //     "Mixpanel",
+  //   ],
+  //   dateRange: "June 2025 - Present",
+  // },
   {
-    id: 2,
-    title: "ErotixAI",
+    id: 1,
+    title: "heyhun",
     description:
-      "ErotixAI is an AI-powered companion platform where users can interact with lifelike avatars through chat, voice calls, and video calls. Focused on delivering an immersive and engaging experience, the platform features multiple dynamic avatars and real-time interaction, allowing users to build meaningful virtual connections.",
-    icon: "/images/projects/erotixai/erotix_ai.png",
-    websiteUrl: "https://www.erotixai.com/",
-    detailsUrl: "#",
+      "heyhun is an AI companion you reach through your phone number, just like anyone else in your life. Text her, call her, send photos, share what's on your mind—she remembers, learns your preferences, and responds in a way that feels personal and real. Behind the scenes, the heyhun web dashboard lets you see and manage everything: memories, preferences, conversation history, calendars, and more. No clunky app store installs—just a private, always-available AI you talk to from your native messaging app, with a powerful control center on the web when you want to go deeper.",
+    icon: "/images/projects/heyhun/blue-heart.svg",
+    websiteUrl: "https://heyhun.com/",
+    detailsUrl: "https://heyhun.com/",
     tech: [
       "React Js",
       "Redux",
@@ -22,29 +62,8 @@ const projects = [
       "RESTFUL APIs",
       "Firebase",
       "Mongo DB",
-      "Mixpanel",
     ],
-    dateRange: "Jan 2025 - Present",
-  },
-  {
-    id: 2,
-    title: "ErotixAI - Admin",
-    description:
-      "Admin panel for ErotixAI used to manage AI companions and avatars displayed on the main platform. Provides tools for creating, updating, and publishing avatars, managing AI video call characters, controlling voice and media assets, and moderating user interactions and reports. The panel also includes analytics and usage insights powered by Mixpanel, allowing the team to monitor how users engage with the app.",
-    icon: "",
-    websiteUrl: "https://admin.erotix.ai/",
-    detailsUrl: "#",
-    tech: [
-      "React Js",
-      "Redux",
-      "Tailwind CSS",
-      "Node.js",
-      "RESTFUL APIs",
-      "Firebase",
-      "Mongo DB",
-      "Mixpanel",
-    ],
-    dateRange: "June 2025 - Present",
+    dateRange: "August 2025",
   },
   {
     id: 2,
@@ -53,7 +72,7 @@ const projects = [
       "Tourneykey is a basketball tournament management platform that helps organizers streamline league operations. It supports creating tournaments, registering teams and coaches, managing event locations, setting up game schedules, and tracking scores and standings. The platform is designed to simplify every stage of tournament planning — from setup to final results — for both organizers and participants.",
     icon: "/images/projects/tourneykey/tourney_key.svg",
     websiteUrl: "https://tourneykey.com/",
-    detailsUrl: "#",
+    detailsUrl: "https://tourneykey.com/",
     tech: [
       "Angular",
       "CSS",

@@ -15,6 +15,7 @@ import {
   SiFirebase,
   SiTailwindcss,
   SiRedux,
+  SiSupabase,
 } from "react-icons/si";
 
 // Helper function to render icons with consistent sizing
@@ -58,6 +59,7 @@ const skills = [
       { name: "Node.js", icon: () => Icon(FaNodeJs, 32), colorClass: "text-green-500" },
       { name: "MongoDB", icon: () => Icon(SiMongodb, 32), colorClass: "text-green-600" },
       { name: "Firebase", icon: () => Icon(SiFirebase, 32), colorClass: "text-yellow-500" },
+      { name: "Supabase", icon: () => Icon(SiSupabase, 32), colorClass: "text-green-400" },
       { name: "SQL", icon: () => Icon(FaDatabase, 32), colorClass: "text-blue-600" },
     ],
   },
