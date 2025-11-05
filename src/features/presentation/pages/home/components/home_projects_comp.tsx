@@ -1,4 +1,5 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Helper to render react-icons FA in a consistent way (like in home_about_comp)
 function IconFA(IconComponent: any, size: number = 20, className = "") {
@@ -86,8 +87,8 @@ const projects = [
     description:
       "VisionFrame AI is a digital frame powered by DALL-E 3 and ChatGPT-4, enabling interactive, voice-controlled art displays to transform your space into a dynamic gallery.",
     icon: "/images/projects/visionframe/visionframe.png",
-    websiteUrl: "https://visionframedisplay.web.app/",
-    detailsUrl: "#",
+    websiteUrl: "/projects/visionframe",
+    detailsUrl: "/projects/visionframe",
     tech: [
       "Flutter",
       "Firebase",
@@ -167,15 +168,25 @@ export default function HomeProjectsComp() {
               </div>
               {/* Title and Date Range */}
               <div className="flex items-center justify-between mb-1">
-                <a
-                  href={project.detailsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-semibold text-gray-100 hover:text-blue-400"
-                  aria-label={`Open ${project.title}`}
-                >
-                  {project.title}
-                </a>
+                {project.detailsUrl.startsWith("/") ? (
+                  <Link
+                    to={project.detailsUrl}
+                    className="text-lg font-semibold text-gray-100 hover:text-blue-400"
+                    aria-label={`Open ${project.title}`}
+                  >
+                    {project.title}
+                  </Link>
+                ) : (
+                  <a
+                    href={project.detailsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold text-gray-100 hover:text-blue-400"
+                    aria-label={`Open ${project.title}`}
+                  >
+                    {project.title}
+                  </a>
+                )}
                 {project.dateRange && (
                   <span className="text-xs text-gray-400 font-medium ml-2 whitespace-nowrap">
                     {project.dateRange}
