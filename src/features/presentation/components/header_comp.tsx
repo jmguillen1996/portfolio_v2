@@ -30,9 +30,14 @@ export default function HeaderComp({
           Contact
         </a>
       </nav>
-      <button className="hidden md:block border border-blue-500 text-blue-500 px-5 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">
+      <a
+        href="https://docs.google.com/document/d/17cCKYu1he8bZr1FgAVuKH6VSo9eWzwS9/edit?usp=sharing&ouid=112143315164278030818&rtpof=true&sd=true"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:block border border-blue-500 text-blue-500 px-5 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition"
+      >
         Resume
-      </button>
+      </a>
       {/* Hamburger for mobile */}
       <button
         className="md:hidden flex items-center justify-center w-10 h-10 text-white focus:outline-none"

@@ -61,7 +61,7 @@ const projects = [
       "Node.js",
       "RESTFUL APIs",
       "Firebase",
-      "Mongo DB",
+      "Supabase",
     ],
     dateRange: "August 2025",
   },

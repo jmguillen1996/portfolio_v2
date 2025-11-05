@@ -52,7 +52,12 @@ export default function HeaderDrawerComp({
           >
             Contact
           </a>
-          <button className="mt-6 border border-blue-500 text-blue-500 px-8 py-2 rounded-full font-semibold flex items-center gap-2 hover:bg-blue-500 hover:text-white transition">
+          <a
+            href="https://docs.google.com/document/d/17cCKYu1he8bZr1FgAVuKH6VSo9eWzwS9/edit?usp=sharing&ouid=112143315164278030818&rtpof=true&sd=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 border border-blue-500 text-blue-500 px-8 py-2 rounded-full font-semibold flex items-center gap-2 hover:bg-blue-500 hover:text-white transition"
+          >
             <svg
               className="w-5 h-5"
               fill="none"
@@ -67,7 +72,7 @@ export default function HeaderDrawerComp({
               />
             </svg>
             Resume
-          </button>
+          </a>
         </nav>
       </div>
     </div>

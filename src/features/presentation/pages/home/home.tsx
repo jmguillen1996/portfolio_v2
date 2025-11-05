@@ -4,6 +4,7 @@ import HomeHeroComp from "./components/home_hero_comp";
 import HomeAboutComp from "./components/home_about_comp";
 import HomeSkillsComp from "./components/home_skills_comp";
 import HomeProjectsComp from "./components/home_projects_comp";
+import HomeExperienceComp from "./components/home_experience_comp";
 
 export default function HomePage() {
   return (
@@ -21,37 +22,7 @@ export default function HomePage() {
       <HomeProjectsComp />
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-4 bg-gray-900">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Work Experience
-          </h2>
-          <div className="space-y-12">
-            <div className="bg-gray-800 rounded-lg p-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Senior Mobile Developer
-                  </h3>
-                  <p className="text-blue-400">Company Name</p>
-                </div>
-                <span className="text-gray-400">2020 - Present</span>
-              </div>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>
-                  Led development of cross-platform mobile applications using
-                  React Native
-                </li>
-                <li>
-                  Implemented complex features and optimized app performance
-                </li>
-                <li>Mentored junior developers and conducted code reviews</li>
-              </ul>
-            </div>
-            {/* Add more experience items as needed */}
-          </div>
-        </div>
-      </section>
+      <HomeExperienceComp />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
@@ -78,7 +49,7 @@ export default function HomePage() {
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  <span className="text-gray-300">email@example.com</span>
+                  <span className="text-gray-300">josefmguillen@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <svg
@@ -100,7 +71,7 @@ export default function HomePage() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span className="text-gray-300">Location, Country</span>
+                  <span className="text-gray-300">Manila, Philippines</span>
                 </div>
               </div>
             </div>
