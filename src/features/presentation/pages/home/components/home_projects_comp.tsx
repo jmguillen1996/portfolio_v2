@@ -1,5 +1,6 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Helper to render react-icons FA in a consistent way (like in home_about_comp)
 function IconFA(IconComponent: any, size: number = 20, className = "") {
@@ -103,29 +104,82 @@ const projects = [
 ];
 
 export default function HomeProjectsComp() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
   return (
     <section
       id="projects"
       className="relative py-20 px-0 w-full bg-[#10131a] overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-100 drop-shadow-lg">
+        <motion.h2 
+          className="text-3xl font-bold mb-8 text-center text-gray-100 drop-shadow-lg"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           Projects
-        </h2>
-        <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
-          These are selected projects from my freelance work. I’ve also worked
+        </motion.h2>
+        <motion.p 
+          className="text-gray-500 text-center mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          These are selected projects from my freelance work. I've also worked
           on several applications for past companies, but I no longer have
           access to those projects to showcase them here.
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        </motion.p>
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.id}
-              className="bg-[#11203a]/90 rounded-2xl shadow-lg p-6 flex flex-col relative min-h-[320px] transition-transform hover:scale-[1.025]"
+              className="bg-[#11203a]/90 rounded-2xl shadow-lg p-6 flex flex-col relative min-h-[320px]"
+              variants={cardVariants}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)",
+              }}
+              transition={{ duration: 0.3 }}
             >
               {/* Icon and external link */}
               <div className="flex items-center justify-between mb-4">
-                <div>
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                >
                   {project.icon ? (
                     <img
                       src={project.icon}
@@ -155,16 +209,18 @@ export default function HomeProjectsComp() {
                       </svg>
                     </div>
                   )}
-                </div>
-                <a
+                </motion.div>
+                <motion.a
                   href={project.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-300 hover:text-blue-400 transition"
                   aria-label={`Open ${project.title}`}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   {IconFA(FaExternalLinkAlt, 20, "w-5 h-5")}
-                </a>
+                </motion.a>
               </div>
               {/* Title and Date Range */}
               <div className="flex items-center justify-between mb-1">
@@ -209,9 +265,9 @@ export default function HomeProjectsComp() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
       {/* Subtle blurred background shapes, matching the skills section */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-blue-950 via-indigo-950 to-transparent opacity-10 rounded-full blur-3xl -z-10" />

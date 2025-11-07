@@ -17,6 +17,7 @@ import {
   SiRedux,
   SiSupabase,
 } from "react-icons/si";
+import { motion } from "framer-motion";
 
 // Helper function to render icons with consistent sizing
 function Icon(Component: unknown, size = 32) {
@@ -178,36 +179,107 @@ const skills = [
 ];
 
 export default function HomeSkillsComp() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const skillIconVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 200,
+        damping: 15,
+      },
+    },
+  };
+
   return (
     <section
       id="skills"
       className="relative py-20 px-0 w-full overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-100 drop-shadow-lg">
+        <motion.h2 
+          className="text-3xl font-bold mb-8 text-center text-gray-100 drop-shadow-lg"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           Skills & Technologies
-        </h2>
-        <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
-          Here are some of the technologies and tools I’ve worked with over the years, spanning frontend, backend, mobile, and others. I love learning new things and always strive to keep my skillset up to date!
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {skills.map((group) => (
-            <div
+        </motion.h2>
+        <motion.p 
+          className="text-gray-500 text-center mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Here are some of the technologies and tools I've worked with over the years, spanning frontend, backend, mobile, and others. I love learning new things and always strive to keep my skillset up to date!
+        </motion.p>
+        <motion.div 
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {skills.map((group, groupIndex) => (
+            <motion.div
               key={group.category}
-              className="rounded-2xl shadow-lg p-[2px] bg-gradient-to-br from-[#232b3a] via-[#181f2a] to-[#10131a] transition-transform hover:scale-[1.025]"
+              className="rounded-2xl shadow-lg p-[2px] bg-gradient-to-br from-[#232b3a] via-[#181f2a] to-[#10131a]"
+              variants={cardVariants}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="rounded-2xl bg-gradient-to-br from-[#181f2a]/90 to-[#10131a]/90 p-6 h-full flex flex-col">
                 <h3 className="text-lg font-semibold text-gray-200 mb-4 flex items-center gap-2 justify-center">
                   {group.category}
                 </h3>
-                <div className="grid grid-cols-2 gap-x-2 gap-y-6 place-items-center">
+                <motion.div 
+                  className="grid grid-cols-2 gap-x-2 gap-y-6 place-items-center"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.05,
+                        delayChildren: groupIndex * 0.1,
+                      },
+                    },
+                  }}
+                >
                   {group.items.map((skill) => (
-                    <div
+                    <motion.div
                       key={skill.name}
                       className="flex flex-col items-center justify-center w-full"
+                      variants={skillIconVariants}
                     >
-                      <div
-                        className={`bg-gradient-to-br from-gray-950/90 to-gray-900/80 rounded-full p-3 mb-2 shadow-lg transition-transform hover:scale-110 flex items-center justify-center ${skill.colorClass}`}
+                      <motion.div
+                        className={`bg-gradient-to-br from-gray-950/90 to-gray-900/80 rounded-full p-3 mb-2 shadow-lg flex items-center justify-center ${skill.colorClass}`}
                         style={{
                           minWidth: 56,
                           minHeight: 56,
@@ -215,19 +287,25 @@ export default function HomeSkillsComp() {
                           alignItems: "center",
                           justifyContent: "center",
                         }}
+                        whileHover={{ 
+                          scale: 1.2, 
+                          rotate: 5,
+                          boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)",
+                        }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       >
                         {skill.icon()}
-                      </div>
+                      </motion.div>
                       <span className="text-gray-400 text-xs text-center mt-1">
                         {skill.name}
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
       {/* Subtle blurred background shapes, even less saturated for dark mode */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-blue-950 via-indigo-950 to-transparent opacity-10 rounded-full blur-3xl -z-10" />

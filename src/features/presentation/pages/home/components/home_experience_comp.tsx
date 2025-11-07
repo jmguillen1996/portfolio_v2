@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Helper to render react-icons
 function Icon(Component: any, size: number = 20) {
@@ -234,26 +235,69 @@ export default function HomeExperienceComp() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
   return (
     <section
       id="experience"
       className="relative py-20 px-0 w-full bg-gray-900 overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">
+        <motion.h2 
+          className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           Work History
-        </h2>
-        <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
+        </motion.h2>
+        <motion.p 
+          className="text-gray-500 text-center mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           Professional Experience
-        </p>
+        </motion.p>
 
-        <div className="space-y-4">
+        <motion.div 
+          className="space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {workHistory.map((work, index) => {
             const isOpen = openIndex.includes(index);
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-[#11203a]/90 rounded-2xl shadow-lg overflow-hidden transition-all"
+                className="bg-[#11203a]/90 rounded-2xl shadow-lg overflow-hidden"
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.2)" }}
+                transition={{ duration: 0.3 }}
               >
                 {/* Header - Clickable */}
                 <div
@@ -278,8 +322,15 @@ export default function HomeExperienceComp() {
                 </div>
 
                 {/* Content - Expandable */}
-                {isOpen && (
-                  <div className="px-6 pb-6 space-y-6 border-t border-gray-700/50">
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div 
+                      className="px-6 pb-6 space-y-6 border-t border-gray-700/50"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
                     {/* Main bullets */}
                     <div className="space-y-3 pt-4">
                       {work.bullets.map((bullet, idx) => (
@@ -339,12 +390,13 @@ export default function HomeExperienceComp() {
                         ))}
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       {/* Subtle blurred background shapes */}

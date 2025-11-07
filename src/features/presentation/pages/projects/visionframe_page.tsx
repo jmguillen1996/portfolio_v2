@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -52,44 +53,144 @@ export default function VisionFramePage() {
     setLightboxOpen(true);
   };
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
   return (
     <PageLayoutComp>
       <div className="min-h-screen py-20 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
+              variants={headerVariants}
+            >
               Vision Frame AI
-            </h1>
-            <p className="text-xl text-gray-400 mb-6">
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-gray-400 mb-6"
+              variants={headerVariants}
+            >
               AI-Powered Digital Art Frame
-            </p>
-            <a
+            </motion.p>
+            <motion.a
               href="https://visionframedisplay.web.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition"
+              variants={headerVariants}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
             >
               Visit Website
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
           {/* Project Overview */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-6">
+          <motion.section 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+          >
+            <motion.h2 
+              className="text-3xl font-bold text-white mb-6"
+              variants={sectionVariants}
+            >
               About the Project
-            </h2>
-            <div className="bg-[#11203a]/90 rounded-2xl shadow-lg p-8 space-y-4">
-              <p className="text-gray-300 leading-relaxed">
+            </motion.h2>
+            <motion.div 
+              className="bg-[#11203a]/90 rounded-2xl shadow-lg p-8 space-y-4"
+              whileHover={{ scale: 1.01, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)" }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.p 
+                className="text-gray-300 leading-relaxed"
+                variants={itemVariants}
+              >
                 VisionFrame AI is an AI-powered digital art platform that
                 transforms your living space into a dynamic gallery filled with
                 AI-generated art. The platform consists of three main
                 components working seamlessly together to deliver an immersive
                 art experience.
-              </p>
+              </motion.p>
 
-              <div className="space-y-6 mt-8">
-                <div>
+              <motion.div 
+                className="space-y-6 mt-8"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.div variants={itemVariants}>
                   <h3 className="text-xl font-semibold text-blue-300 mb-2">
                     🖼️ The Digital Frame
                   </h3>
@@ -101,9 +202,9 @@ export default function VisionFramePage() {
                     with OpenAI APIs integration for real-time conversational
                     interactions.
                   </p>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div variants={itemVariants}>
                   <h3 className="text-xl font-semibold text-blue-300 mb-2">
                     📱 Mobile Control App (Android & iOS)
                   </h3>
@@ -116,9 +217,9 @@ export default function VisionFramePage() {
                     settings control (brightness and volume), and smart
                     schedules for displaying art.
                   </p>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div variants={itemVariants}>
                   <h3 className="text-xl font-semibold text-blue-300 mb-2">
                     🌐 Web Platform
                   </h3>
@@ -135,15 +236,27 @@ export default function VisionFramePage() {
                     that provides additional management and control features for
                     your VisionFrame AI experience.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Tech Stack */}
-              <div className="mt-8 pt-8 border-t border-gray-700/50">
+              <motion.div 
+                className="mt-8 pt-8 border-t border-gray-700/50"
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <h3 className="text-lg font-semibold text-gray-200 mb-4">
                   Tech Stack
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <motion.div 
+                  className="flex flex-wrap gap-2"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
                   {[
                     "Flutter (Dart)",
                     "RESTFUL APIs",
@@ -153,29 +266,54 @@ export default function VisionFramePage() {
                     "Android",
                     "iOS",
                   ].map((tech, idx) => (
-                    <span
+                    <motion.span
                       key={idx}
                       className="text-xs font-medium text-blue-200 bg-blue-900/40 px-3 py-1 rounded-full"
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.1, backgroundColor: "rgba(59, 130, 246, 0.3)" }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
-                </div>
-              </div>
-            </div>
-          </section>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.section>
 
           {/* Digital Frame Screenshots */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-6">
+          <motion.section 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+          >
+            <motion.h2 
+              className="text-3xl font-bold text-white mb-6"
+              variants={sectionVariants}
+            >
               Digital Frame Gallery
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {frameImages.map((image, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-[#11203a]/90 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform"
+                  className="bg-[#11203a]/90 rounded-lg overflow-hidden cursor-pointer"
                   onClick={() => openLightbox(frameImageThumbs, index)}
+                  variants={imageVariants}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -5,
+                    boxShadow: "0 15px 35px rgba(59, 130, 246, 0.3)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <iframe
                     src={image}
@@ -183,42 +321,74 @@ export default function VisionFramePage() {
                     title={`Digital Frame Screenshot ${index + 1}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* Mobile App Screenshots */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-6">
+          <motion.section 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={sectionVariants}
+          >
+            <motion.h2 
+              className="text-3xl font-bold text-white mb-6"
+              variants={sectionVariants}
+            >
               Mobile App Gallery
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.05 }}
+            >
               {mobileImages.map((image, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-[#11203a]/90 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform"
+                  className="bg-[#11203a]/90 rounded-lg overflow-hidden cursor-pointer"
                   onClick={() => openLightbox(mobileImages, index)}
+                  variants={imageVariants}
+                  whileHover={{ 
+                    scale: 1.08, 
+                    y: -8,
+                    boxShadow: "0 15px 35px rgba(59, 130, 246, 0.3)",
+                    zIndex: 10,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <img
                     src={image}
                     alt={`Mobile App Screenshot ${index + 1}`}
                     className="w-full h-64 object-cover"
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* Back Button */}
-          <div className="text-center">
-            <a
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.a
               href="/"
               className="inline-block border border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               ← Back to Portfolio
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </div>
 
