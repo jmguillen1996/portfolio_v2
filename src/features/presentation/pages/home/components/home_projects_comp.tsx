@@ -49,6 +49,24 @@ const projects = [
   //   dateRange: "June 2025 - Present",
   // },
   {
+    id: 3,
+    title: "Jumpspeak",
+    description:
+      "Jumpspeak is an AI-powered language learning app that helps you actually speak a new language from day 1. With over 1 million users, it teaches 20+ languages like Spanish, French, German, and Korean through real conversations with AI chatbots. You get instant feedback on your pronunciation and grammar, making it feel like having a personal tutor available 24/7.",
+    icon: "/images/projects/jumpspeaks/jumpspeaks.png",
+    websiteUrl: "/projects/jumpspeak",
+    detailsUrl: "/projects/jumpspeak",
+    tech: [
+      "Flutter",
+      "Bloc",
+      "Android",
+      "iOS",
+      "AI",
+      "Maestro"
+    ],
+    dateRange: "November 2025",
+  },
+  {
     id: 1,
     title: "heyhun",
     description:
@@ -65,7 +83,7 @@ const projects = [
       "Firebase",
       "Supabase",
     ],
-    dateRange: "August 2025",
+    dateRange: "August 2025 - September 2025",
   },
   {
     id: 2,
