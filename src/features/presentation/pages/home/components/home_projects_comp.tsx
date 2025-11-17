@@ -73,8 +73,8 @@ const projects = [
     description:
       "Tourneykey is a basketball tournament management platform that helps organizers streamline league operations. It supports creating tournaments, registering teams and coaches, managing event locations, setting up game schedules, and tracking scores and standings. The platform is designed to simplify every stage of tournament planning — from setup to final results — for both organizers and participants.",
     icon: "/images/projects/tourneykey/tourney_key.svg",
-    websiteUrl: "https://tourneykey.com/",
-    detailsUrl: "https://tourneykey.com/",
+    websiteUrl: "/projects/tourneykey",
+    detailsUrl: "/projects/tourneykey",
     tech: [
       "Angular",
       "CSS",

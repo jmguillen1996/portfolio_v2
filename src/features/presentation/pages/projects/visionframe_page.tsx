@@ -280,6 +280,168 @@ export default function VisionFramePage() {
             </motion.div>
           </motion.section>
 
+          {/* My Role Section */}
+          <motion.section 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={sectionVariants}
+          >
+            <motion.h2 
+              className="text-3xl font-bold text-white mb-6"
+              variants={sectionVariants}
+            >
+              My Role
+            </motion.h2>
+            <motion.div 
+              className="bg-gradient-to-br from-[#11203a]/90 to-[#1a2f4a]/90 rounded-2xl shadow-lg p-8 border border-blue-500/20"
+              whileHover={{ scale: 1.01, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)" }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div 
+                className="space-y-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.div variants={itemVariants}>
+                  <h3 className="text-2xl font-bold text-blue-300 mb-3">
+                    Lead / Sr. Software Developer
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4">
+                    January 2024 - July 2024
+                  </p>
+                  <p className="text-gray-300 leading-relaxed">
+                    I led the development of VisionFrame AI and built everything from the ground up. 
+                    This meant creating the digital frame app, the mobile apps for both Android and iOS, 
+                    and all the backend systems. I worked closely with the client to bring their idea to life, 
+                    set up the tech stack, and helped guide the junior devs on the team. 
+                    Basically took it from zero to a fully working AI-powered art platform.
+                  </p>
+                </motion.div>
+
+                <motion.div 
+                  className="grid md:grid-cols-2 gap-6 mt-6"
+                  variants={containerVariants}
+                >
+                  <motion.div 
+                    className="bg-[#0a1628]/50 rounded-xl p-6 border border-blue-500/10"
+                    variants={itemVariants}
+                    whileHover={{ 
+                      backgroundColor: "rgba(10, 22, 40, 0.7)",
+                      borderColor: "rgba(59, 130, 246, 0.3)",
+                    }}
+                  >
+                    <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">🎨</span>
+                      Digital Frame Development
+                    </h4>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Built the interactive digital frame from scratch</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Integrated OpenAI APIs (DALL-E 3 & ChatGPT-4) for real-time AI interactions</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Implemented voice command functionality for seamless user interaction</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Designed the system architecture for real-time art generation and display</span>
+                      </li>
+                    </ul>
+                  </motion.div>
+
+                  <motion.div 
+                    className="bg-[#0a1628]/50 rounded-xl p-6 border border-blue-500/10"
+                    variants={itemVariants}
+                    whileHover={{ 
+                      backgroundColor: "rgba(10, 22, 40, 0.7)",
+                      borderColor: "rgba(59, 130, 246, 0.3)",
+                    }}
+                  >
+                    <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">📱</span>
+                      Mobile App Development
+                    </h4>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Developed cross-platform mobile app using Flutter for Android & iOS</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Created intuitive Gallery and Chat interfaces for frame management</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Implemented slideshow creation, image uploads, and smart scheduling</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">•</span>
+                        <span>Built remote control features for frame settings (brightness & volume)</span>
+                      </li>
+                    </ul>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div 
+                  className="bg-[#0a1628]/50 rounded-xl p-6 border border-blue-500/10 mt-6"
+                  variants={itemVariants}
+                  whileHover={{ 
+                    backgroundColor: "rgba(10, 22, 40, 0.7)",
+                    borderColor: "rgba(59, 130, 246, 0.3)",
+                  }}
+                >
+                  <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">⚙️</span>
+                    Backend & Infrastructure
+                  </h4>
+                  <ul className="space-y-2 text-gray-300 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Architected and developed the entire backend infrastructure using Node.js</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Designed and implemented RESTful APIs for seamless communication between components</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Set up Firebase integration for real-time data synchronization and storage</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Ensured scalability and reliability across all platform components</span>
+                    </li>
+                  </ul>
+                </motion.div>
+
+                <motion.div 
+                  className="bg-blue-500/10 rounded-xl p-6 border border-blue-400/30 mt-6"
+                  variants={itemVariants}
+                  whileHover={{ 
+                    backgroundColor: "rgba(59, 130, 246, 0.15)",
+                    borderColor: "rgba(59, 130, 246, 0.5)",
+                  }}
+                >
+                  <p className="text-gray-200 leading-relaxed italic">
+                    <span className="text-blue-300 font-semibold">Key Achievement:</span> Successfully delivered 
+                    a complete AI-powered digital art ecosystem from concept to production, encompassing hardware 
+                    integration, mobile applications, backend services, and AI integration — demonstrating full-stack 
+                    expertise and leadership in emerging AI technologies.
+                  </p>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.section>
+
           {/* Digital Frame Screenshots */}
           <motion.section 
             className="mb-16"
