@@ -225,6 +225,8 @@ export default function TourneyKeyPage() {
                     "CSS",
                     "RxJs",
                     "RESTful APIs",
+                    "Spring Boot",
+                    "Java",
                   ].map((tech, idx) => (
                     <motion.span
                       key={idx}

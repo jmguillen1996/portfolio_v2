@@ -78,7 +78,9 @@ const projects = [
     tech: [
       "Angular",
       "CSS",
-      "RxJs"
+      "RxJs",
+      "Spring Boot",
+      "Java"
     ],
     dateRange: "Sep 2024 - Nov 2024",
   },
