@@ -64,7 +64,7 @@ const projects = [
       "AI",
       "Maestro"
     ],
-    dateRange: "November 2025",
+    dateRange: "", //"November 2025",
   },
   {
     id: 1,
@@ -83,7 +83,7 @@ const projects = [
       "Firebase",
       "Supabase",
     ],
-    dateRange: "August 2025 - September 2025",
+    dateRange: "", //"August 2025 - September 2025",
   },
   {
     id: 2,
@@ -100,7 +100,7 @@ const projects = [
       "Spring Boot",
       "Java"
     ],
-    dateRange: "Sep 2024 - Nov 2024",
+    dateRange: "", //"Sep 2024 - Nov 2024",
   },
   {
     id: 1,
@@ -119,7 +119,7 @@ const projects = [
       "Android",
       "iOS",
     ],
-    dateRange: "Mar 2024 - Sep 2024",
+    dateRange: "", //"Mar 2024 - Sep 2024",
   },
 ];
 

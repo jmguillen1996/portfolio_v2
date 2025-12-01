@@ -13,7 +13,7 @@ export default function HeaderComp({
     <header className="fixed top-0 left-0 right-0 w-full flex items-center justify-between h-[5rem] px-8 mx-auto bg-background/80 backdrop-blur-sm z-50">
       <div className="flex items-center space-x-2">
         <Link to="/" className="text-lg font-bold text-white cursor-pointer hover:opacity-80 transition">
-          jose<span className="text-blue-500">guillen</span>
+          josef<span className="text-blue-500">guillen</span>
         </Link>
       </div>
       {/* Desktop Nav */}

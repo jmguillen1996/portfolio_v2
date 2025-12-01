@@ -1,4 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Lightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 import { PageLayoutComp } from "../../components/page_layout_comp";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -7,7 +12,53 @@ function IconFA(IconComponent: any, size: number = 20, className = "") {
   return <IconComponent size={size} className={className} />;
 }
 
+const appImages = [
+  "https://drive.google.com/thumbnail?id=1Bi3vYG4hQziAw7AtvOs6mGU0-M2OXkZo&sz=w800",
+  "https://drive.google.com/thumbnail?id=192PSltHvE4TxGanVUJ6filGAxOjGtGmg&sz=w800",
+  "https://drive.google.com/thumbnail?id=1RoE64trQXLw3jtAlwtiCRDYDccfx4abU&sz=w800",
+  "https://drive.google.com/thumbnail?id=1rRarvQY6B6cyAfGg7jVMML24nz9FwCNG&sz=w800",
+  "https://drive.google.com/thumbnail?id=1e8aPqA0AQwpUZQ_iAY3P5hb7irqjYTQt&sz=w800",
+  "https://drive.google.com/thumbnail?id=1q_KzCnT1plOSp7hNBQ59Irx4_dZi50ZC&sz=w800",
+  "https://drive.google.com/thumbnail?id=1mHuOG_zMUEJDW0EEdnNZh36DSO9YSolL&sz=w800",
+  "https://drive.google.com/thumbnail?id=1meS6AD9mr6xMvkeOhp58Js66I6JKVoU6&sz=w800",
+  "https://drive.google.com/thumbnail?id=1kLLIE1i7y1lUDLWhe3g8ZrLXs1s3mj0P&sz=w800",
+  "https://drive.google.com/thumbnail?id=13K-6u1vm9JJlZbC3j_PXdvCWUOUkIBFZ&sz=w800",
+  "https://drive.google.com/thumbnail?id=1ADq8XWv_2HSynf8rRecoBKEZAX4q6sPU&sz=w800",
+  "https://drive.google.com/thumbnail?id=1LViYpeeoYr8UnYWQKcFetfbf9eyImjCL&sz=w800",
+  "https://drive.google.com/thumbnail?id=1pu7m6_0qh19E88mAoc-Lb9vFBIb2jMcf&sz=w800",
+  "https://drive.google.com/thumbnail?id=1Y-NQfbkUBKWpkFyEcWxVgIUL0rswrKI8&sz=w800",
+  "https://drive.google.com/thumbnail?id=1lmtXg2fe-fXKkjD8l1Cxw7rXBXAWoScn&sz=w800",
+  "https://drive.google.com/thumbnail?id=1srOwQ9iR1Wb58q0VIuUt8zP-3oI0L8nv&sz=w800",
+  "https://drive.google.com/thumbnail?id=18ibTvxlcCcswpMfxRIWtzOiVl-g6hNNj&sz=w800",
+  "https://drive.google.com/thumbnail?id=1nIUgtJCQeR9mlI11DIZcyiFrRlWlqTTN&sz=w800",
+  "https://drive.google.com/thumbnail?id=1l7O_Hxj4UgFsaPuQlXitf9hdkCagECkH&sz=w800",
+  "https://drive.google.com/thumbnail?id=1i4OxUsnW2sR-OCxhO2_QFE7TVcbjjrZ3&sz=w800",
+  "https://drive.google.com/thumbnail?id=1LPUJRm81hbER5cc8vYD4ZrKFy7yZfbgs&sz=w800",
+  "https://drive.google.com/thumbnail?id=1NDyaFlNo1uPtSI_HO84MO7bokujUF9Cz&sz=w800",
+  "https://drive.google.com/thumbnail?id=19L7K9qh_NJ8RJzCDMuaC9rKLCQJzm6aW&sz=w800",
+  "https://drive.google.com/thumbnail?id=1sOazfUHulY8e2FYNXpONd1iXfROdI2dF&sz=w800",
+  "https://drive.google.com/thumbnail?id=1wOFUZUI_XelAwCqVmbD8m6K7-MCo8mXr&sz=w800",
+  "https://drive.google.com/thumbnail?id=1yNgehfxac9NUFenXbI09S8diHvktQy7c&sz=w800",
+  "https://drive.google.com/thumbnail?id=1ef18g3IEORoulSSdkaSzraUdMdZnyg1M&sz=w800",
+  "https://drive.google.com/thumbnail?id=1wvlilU1uLEEKaVRp415-MCa65ByQCCrt&sz=w800",
+  "https://drive.google.com/thumbnail?id=14Mn0_LMvM6iypAW0YXg0e1DyLL51e5g1&sz=w800",
+  "https://drive.google.com/thumbnail?id=1g4Y-R-FNTdhcjhrofB-czzDgEh9gGY6n&sz=w800",
+  "https://drive.google.com/thumbnail?id=1nKLNTeItEl_yEPNpfXXU7FyDVg8xFTiZ&sz=w800",
+  "https://drive.google.com/thumbnail?id=1kG9WEK6Ru6wHhdvbqYhLlqWVH5wgQzWC&sz=w800",
+  "https://drive.google.com/thumbnail?id=1VMpnEC6jBcxoqG4c19BTfopsH2LIQdR2&sz=w800",
+];
+
 export default function JumpspeakPage() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+
+  const openLightbox = (images: string[], index: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   const headerVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: {
@@ -47,6 +98,18 @@ export default function JumpspeakPage() {
     visible: {
       opacity: 1,
       y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
       transition: {
         duration: 0.5,
         ease: [0.4, 0, 0.2, 1] as const,
@@ -383,6 +446,58 @@ export default function JumpspeakPage() {
             </motion.div>
           </motion.section>
 
+          {/* App Screenshots */}
+          <motion.section 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={sectionVariants}
+          >
+            <motion.h2 
+              className="text-3xl font-bold text-white mb-6"
+              variants={sectionVariants}
+            >
+              App Screenshots
+            </motion.h2>
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.05 }}
+            >
+              {appImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-[#11203a]/90 rounded-lg overflow-hidden cursor-pointer"
+                  onClick={() => openLightbox(appImages, index)}
+                  variants={imageVariants}
+                  whileHover={{ 
+                    scale: 1.08, 
+                    y: -8,
+                    boxShadow: "0 15px 35px rgba(59, 130, 246, 0.3)",
+                    zIndex: 10,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={image}
+                    alt={`Jumpspeak App Screenshot ${index + 1}`}
+                    className="w-full h-64 object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      // Fallback if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.section>
+
           {/* Back Button */}
           <motion.div 
             className="text-center"
@@ -402,6 +517,19 @@ export default function JumpspeakPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Lightbox with Navigation Controls */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={lightboxImages.map((src) => ({ src }))}
+        index={lightboxIndex}
+        plugins={[Fullscreen, Zoom]}
+        animation={{ fade: 300 }}
+        controller={{
+          closeOnBackdropClick: true,
+        }}
+      />
     </PageLayoutComp>
   );
 }
