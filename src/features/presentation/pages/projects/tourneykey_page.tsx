@@ -65,6 +65,35 @@ export default function TourneyKeyPage() {
               },
             }}
           >
+            {/* Project Icon */}
+            <motion.div
+              className="flex justify-center mb-6"
+              initial={{ opacity: 0, scale: 0, rotate: -180 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 15,
+                delay: 0.1,
+              }}
+            >
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full -z-10" />
+                {/* Icon container */}
+                <div className="bg-gradient-to-br from-[#11203a]/90 to-[#1a2f4a]/90 rounded-3xl p-6 shadow-2xl border border-blue-500/20">
+                  <img
+                    src="/images/projects/tourneykey/tourney_key.svg"
+                    alt="TourneyKey Logo"
+                    className="w-32 h-32 md:w-40 md:h-40 object-contain"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
             <motion.h1 
               className="text-4xl md:text-5xl font-bold text-white mb-4"
               variants={headerVariants}
