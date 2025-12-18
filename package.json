@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-odf": "node scripts/generate-portfolio-odf.js",
+    "generate-pdf": "node scripts/generate-portfolio-pdf.js"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +48,8 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "jszip": "^3.10.1",
+    "pdfkit": "^0.15.0"
   }
 }
